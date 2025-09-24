@@ -2,13 +2,29 @@
 
 main()
 {
-  long count;
+  long character_count, line_count, blank_count, tab_count;
+  int c;
 
-  count = 0;
+  character_count = 0;
+  line_count = 1;
+  blank_count = 0;
+  tab_count = 0;
 
-  while(getchar() != EOF)
+  while((c = getchar()) != EOF)
   {
-    ++count;
+    ++character_count;
+    if(c == '\n')
+    {
+      ++line_count;
+    }
+    if(c == ' ')
+    {
+      ++blank_count;
+    }
+    if(c == '\t')
+    {
+      ++tab_count;
+    }
   }
-  printf("%ld\n", count);
+  printf("\n%ld characters\n%ld lines\n%ld blanks\n%ld tabs\n", character_count, line_count, blank_count, tab_count);
 }
